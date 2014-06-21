@@ -1,7 +1,8 @@
 var fbBaseUrl = 'https://qualchat.firebaseio.com/';
 
 tripId = null;
-driverId = null;
+pLat = null;
+pLong = null;
 
 $(function() {
   initSelectionList('#pickup-location .list', '#pickup-list-item');
@@ -14,10 +15,13 @@ $(function() {
   handleRequest();
   handleCancellation();
 
-  var tripAssignments = new Firebase(fbBaseUrl + 'trip_assignments');
-  tripAssignments.on('child_added', function(childSnapshot) {
+  var driverLocationUpdates = new Firebase(fbBaseUrl + 'driver_location_updates');
+  driverLocationUpdates.on('child_added', function(childSnapshot) {
     if(tripId == childSnapshot.val()['trip_id']) {
-      driverId = childSnapshot.val()['driver_id'];
+      var dLat = childSnapshot.val()['lat'];
+      var dLong = childSnapshot.val()['long'];
+
+      getTimeViaCoords(pLat, pLong, dLat, dLong);
     }
   });
 
@@ -78,4 +82,11 @@ var getListVal = function(elem) {
     // alert('FUCK');
   }
   return val;
+}
+
+var getTimeViaCoords = function(lat1, long1, lat2, long2) {
+  var url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+lat1+','+long1+'&destination='+lat2+','+long2+'&sensor=false&key=AIzaSyDm7QdN3d_oboYBWnu7iQ5Drjc5XLGjOIc';
+  $.get(url, function(data) {
+    console.log(data['routes']['legs']['duration']['text']);
+  });
 }
