@@ -80,11 +80,9 @@ qshuttle.child('trip_requests').on( 'child_added', function(snapshot){
 function get_best_driver(drivers, trip_request){
   //trip_request['pickup']['lat'];
   //trip_request['dropoff']['lng'];
-  var driver_keys = Object.keys(drivers);
-  var best_driver = drivers[driver_keys[0]];
-  var least_size = 999;
-  driver_keys.forEach( function (driver_key){
-    var driver = drivers[driver_key];
+  var best_driver = drivers[0];
+  var least_size = best_driver['queue.length'];
+  drivers.forEach( function (driver){
     if (driver['queue'].length < least_size ){
       best_driver = driver;
     }
