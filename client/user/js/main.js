@@ -2,14 +2,33 @@ $(function() {
   initSelectionList('#pickup-location .list', '#pickup-list-item');
   initSelectionList('#destination .list', '#destination-list-item');
 
-  $('#requestShuttle').on('click', function() {
+  $('#backToMain').on('singletap', function() {
+    $.UIGoBackToArticle('#main');
+  });
+
+  $("#requestShuttle").on("singletap", function() {
     var fbTripRequest = new Firebase('https://qualchat.firebaseio.com/trip_requests');
     fbTripRequest.push({'destination':getListVal('#destination-list-item'),
                           'start': getListVal('#pickup-list-item'),
                           'target_time': '123456',
-                          'time_requested': unixTimeInSeconds()});
+                          'time_requested': unixTimeInSeconds()},
+                          function(error) {
+                            $.UIGoToArticle("#statusPage");
+                          });
     });
+
+    decrementFieldTimer('#pickup-time');
+    decrementFieldTimer('#destination-time');
+
 });
+
+var decrementFieldTimer = function(elem) {
+    var countDown = function() {
+      var curr = parseInt($(elem).html());
+      $(elem).html(curr-1);
+    }
+    setInterval(countDown, 60000);
+}
 
 var initSelectionList = function(elem, list) {
   $(elem).UISelectList({
