@@ -61,38 +61,55 @@ f = RestFirebase.new :site => 'https://qualchat.firebaseio.com/',
 get_drivers( f.get('driver_statuses') )
 get_buildings( f.get('buildings') )
 
-last_log = Time.now
+last_log = Time.now.to_i
 
-loop do
-  if Time.now - last_log > 5
-    print_status
-    last_log = Time.now
-  end
-  ds  = f.event_source 'driver_statuses'
-  dlu = f.event_source 'driver_location_updates'
-  tr  = f.event_source 'trip_requests'
+#ds  = f.event_source 'driver_statuses'
+#dlu = f.event_source 'driver_location_updates'
+#tr  = f.event_source 'trip_requests'
+#
+#ds.start
+#dlu.start
+#tr.start
 
-  ds.onmessage do |event, data, sock|
-    data.each do |key, value|
-      driver_id = value['driver_id']
-      if !@drivers[driver_id].nil?
-        @drivers[driver_id].update_status data
-      end
+es = f.event_source 'driver_statuses'
+
+es.onmessage do |event, data, sock|
+  ap event
+  ap data
+end
+
+es.start
+sleep(1) while true
+es.close
+
+
+ds.onmessage do |event, data, sock|
+  ap data
+  data.each do |key, value|
+    driver_id = value['driver_id']
+    if !@drivers[driver_id].nil?
+      @drivers[driver_id].update_status data
     end
-  end
-
-  dlu.onmessage do |event, data, sock|
-    data.each do |key, value|
-      driver_id = value['driver_id']
-      if !@drivers[driver_id].nil?
-        @drivers[driver_id].update_location value
-      end
-    end
-  end
-
-  tr.onmessage do |event, data, sock|
-    request = TripRequest.new data
-    preferred_drivers = get_best_drivers request
-    send_trip_assignment request, preferred_drivers.first
   end
 end
+
+dlu.onmessage do |event, data, sock|
+  data.each do |key, value|
+    driver_id = value['driver_id']
+    if !@drivers[driver_id].nil?
+      @drivers[driver_id].update_location value
+    end
+  end
+end
+
+tr.onmessage do |event, data, sock|
+  request = TripRequest.new data
+  preferred_drivers = get_best_drivers request
+  send_trip_assignment request, preferred_drivers.first
+end
+
+sleep(1) while @start
+
+ds.close
+tr.close
+dlu.close

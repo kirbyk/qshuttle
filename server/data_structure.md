@@ -3,6 +3,8 @@
 - `lat`
 - `lng`
 - `trip_id`
+##TripCancellations
+- `trip_id`
 ##Trip Requests
 - `start`
 - `destination`
