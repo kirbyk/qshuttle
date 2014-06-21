@@ -30,14 +30,14 @@ driver_location_updates.each do |driver_location_update|
   puts response.body
 end
 
-puts 'driver_routes'
+puts 'trip_assignments'
 
-driver_routes_file = File.open('data/driver_routes.json', 'r')
-driver_routes_raw =  driver_routes_file.read
-driver_routes = JSON.parse(driver_routes_raw)
+trip_assignments_file = File.open('data/trip_assignments.json', 'r')
+trip_assignments_raw =  trip_assignments_file.read
+trip_assignments = JSON.parse(trip_assignments_raw)
 
-driver_routes.each do |driver_route|
-  response = firebase.push('driver_routes', driver_route)
+trip_assignments.each do |trip_assignment|
+  response = firebase.push('trip_assignments', trip_assignment)
   puts response.body
 end
 

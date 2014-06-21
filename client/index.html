@@ -16,13 +16,14 @@
     <script src='js/lib/chui-3.5.5.min.js'></script>
   </head>
   <body>
-    <nav>
+    <!-- ============================ Homepage ============================  -->
+    <nav class='current'>
       <h1>QShuttle</h1>
     </nav>
-    <article id='homepage'>
+    <article id='homepage' class='current'>
       <section>
         <ul class='list'>
-          <li class='comp' data-goto>
+          <li class='comp' data-goto="pickup-location">
             <div>
               <h3>Pickup Location</h3>
             </div>
@@ -31,7 +32,7 @@
               <span class='nav'></span>
             </aside>
           </li>
-          <li class='comp' data-goto>
+          <li class='comp' data-goto='destination'>
             <div>
               <h3>Destination</h3>
             </div>
@@ -46,29 +47,66 @@
     </article>
 
     <!-- ===================== Pickup Location List =======================  -->
-    <nav>
+    <nav class='next'>
+      <a href='#' class='button back'>Back</a>
       <h1>Pickup Location</h1>
     </nav>
-    <article id='select-example'>
+    <article id='pickup-location' class='next'>
       <section>
         <ul class='list'>
-          <li data-select-value='eat'>
-            <h3>Go eat something</h3>
+          <li data-select-value='AA'>
+            <h3>Building AA</h3>
+          </li>
+          <li data-select-value='AM'>
+            <h3>Building AM</h3>
+          </li>
+          <li data-select-value='AO'>
+            <h3>Building AO</h3>
+          </li>
+          <li data-select-value='N'>
+            <h3>Building N</h3>
+          </li>
+          <li data-select-value='O'>
+            <h3>Building O</h3>
+          </li>
+          <li data-select-value='WE'>
+            <h3>Building WE</h3>
+          </li>
+          <li data-select-value='WT'>
+            <h3>Building WT</h3>
           </li>
         </ul>
-        <p><strong>You are going to: </strong><span id="response"></span></p>
       </section>
     </article>
 
     <!-- ======================= Destination List =========================  -->
-    <nav>
+    <nav class='next'>
+      <a href='#' class='button back'>Back</a>
       <h1>Destination</h1>
     </nav>
-    <article id='select-example'>
+    <article id='destination' class='next'>
       <section>
         <ul class='list'>
-          <li data-select-value='eat'>
-            <h3>Go eat something</h3>
+          <li data-select-value='AA'>
+            <h3>Building AA</h3>
+          </li>
+          <li data-select-value='AM'>
+            <h3>Building AM</h3>
+          </li>
+          <li data-select-value='AO'>
+            <h3>Building AO</h3>
+          </li>
+          <li data-select-value='N'>
+            <h3>Building N</h3>
+          </li>
+          <li data-select-value='O'>
+            <h3>Building O</h3>
+          </li>
+          <li data-select-value='WE'>
+            <h3>Building WE</h3>
+          </li>
+          <li data-select-value='WT'>
+            <h3>Building WT</h3>
           </li>
         </ul>
         <p><strong>You are going to: </strong><span id="response"></span></p>
