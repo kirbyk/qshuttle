@@ -26,6 +26,9 @@
       <h1>QShuttle</h1>
     </nav>
     <article id='homepage' class='current'>
+      <div class="alert alert-danger hidden">
+        <strong>Request Cancelled</strong>
+      </div>
       <section>
         <ul class='list'>
           <li class='comp' data-goto="pickup-location">
@@ -33,16 +36,16 @@
               <h3>Pickup Location</h3>
             </div>
             <aside>
-              <h4 id="pickup-list-item">Select your current location</h4>
+              <h4 id="pickup-list-item">Select Pickup</h4>
               <span class='nav'></span>
             </aside>
           </li>
           <li class='comp' data-goto='destination'>
             <div>
-              <h3>Destination</h3>
+              <h3>Dropoff</h3>
             </div>
             <aside>
-              <h4 id="destination-list-item">Select your desired destination</h4>
+              <h4 id="destination-list-item">Select Dropoff</h4>
               <span class='nav'></span>
             </aside>
           </li>
@@ -54,7 +57,7 @@
     <!-- ===================== Pickup Location List =======================  -->
     <nav class='next'>
       <a href='#' class='button back'>Back</a>
-      <h1>Pickup Location</h1>
+      <h1>Pickup</h1>
     </nav>
     <article id='pickup-location' class='next'>
       <section>
@@ -113,7 +116,7 @@
     <!-- ======================= Destination List =========================  -->
     <nav class='next'>
       <a href='#' class='button back'>Back</a>
-      <h1>Destination</h1>
+      <h1>Dropoff</h1>
     </nav>
     <article id='destination' class='next'>
       <section>
@@ -171,7 +174,7 @@
 
     <!-- ========================== Status Page ===========================  -->
     <nav class='next'>
-      <h1>Status Page</h1>
+      <h1>Status</h1>
     </nav>
     <article id="statusPage" class='next'>
       <section>

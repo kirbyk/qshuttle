@@ -34,8 +34,8 @@ $(function() {
 var handleRequest = function() {
   $("#requestShuttle").on("singletap", function() {
     var fbTripRequest = new Firebase(fbBaseUrl + 'trip_requests');
-    var k = fbTripRequest.push({'destination':getListVal('#destination-list-item'),
-                          'start': getListVal('#pickup-list-item'),
+    var k = fbTripRequest.push({'dropoff':getListVal('#destination-list-item'),
+                          'pickup': getListVal('#pickup-list-item'),
                           'target_time': '123456',
                           'time_requested': unixTimeInSeconds()},
                           function(error) {
@@ -53,7 +53,8 @@ var handleCancellation = function() {
     var fbTripCancel = new Firebase(fbBaseUrl + 'trip_cancellations');
     fbTripCancel.push({'trip_id': tripId},
                         function(error) {
-                          $.UIGoToArticle("#statusPage");
+                          $.UIGoToArticle("#homepage");
+                          $('#homepage .hidden').show();
                         });
     });
 }
@@ -81,8 +82,8 @@ var unixTimeInSeconds = function() {
 }
 
 var getListVal = function(elem) {
-  var val = $(elem).html();
-  if(val.indexOf('Select') > -1) {
+  var val = $(elem).html().split(' ')[1];
+  if(val.indexOf('your') > -1) {
     // alert('FUCK');
   }
   return val;
