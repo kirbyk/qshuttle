@@ -33,7 +33,7 @@ loop do
     resp = firebase.push('driver_location_updates', dlu_object)
     puts resp.body
   when 'ds'
-    resp = firebase.push('driver_status', ds_object)
+    resp = firebase.push('driver_statuses', ds_object)
     puts resp.body
   when 'tr'
     resp = firebase.push('trip_requests', tr_object)
