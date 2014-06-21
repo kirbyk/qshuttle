@@ -6,7 +6,7 @@ firebase = Firebase::Client.new(base_uri)
 
 @driver_ids = ['driver_1', 'driver_45', 'joe']
 @trip_ids = ['trip_54', 'trip777', 'cocaine']
-@status = ['available', '@busy']
+@status = ['available', 'busy']
 @buildings = [ "A", "AA", "AC", "AE", "AF", "AI", "AK", "AM", "AO", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AZT", "BB", "BC", "BCT", "BE", "BF", "BG", "BH", "BI", "BL", "D", "E", "F", "M", "N", "O", "P", "Q", "QP", "QRC", "R", "S", "T", "W", "WA", "WB", "WC", "WD", "WE", "WT" ]
 
 def dlu_object
