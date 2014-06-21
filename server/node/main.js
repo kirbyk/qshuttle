@@ -5,6 +5,9 @@ var qshuttle = new Firebase('https://qualchat.firebaseio.com/');
 var drivers = {};
 var buildings = {};
 
+// earlyAssignment, initially false
+var earlyAssignment = -1;
+
 qshuttle.child('buildings').on( 'child_added', function(snapshot){
   var building = snapshot.val();
   var building_code = building['blld'];
@@ -68,26 +71,35 @@ qshuttle.child('trip_requests').on( 'child_added', function(snapshot){
   });
   var best_driver = get_best_driver(avail_drivers, trip_request);
   if (typeof best_driver !== 'undefined'){
-    best_driver['queue'].push(trip_request);
+    if (earlyAssignment != -1){
+        var earlyTripRequest = best_driver['queue'][earlyAssignment]
+        best_driver['queue'][earlyAssignment] = trip_request;
+
+    } else {
+        best_driver['queue'].push(trip_request);
+    }
+
     send_trip_assignment(best_driver);
   } else {
     console.log("No Available Drivers");
     console.log(avail_drivers.length);
   }
-  console.log(trip_request);
+  //console.log(trip_request);
 });
 
 function get_best_driver(drivers, trip_request){
-  pickupBuilding = trip_request.building['pickup'];
+  var pickupBuilding = trip_request['pickup'];
   //lat = buildings[trip_request['pickup']]['lat'];
   //trip_request['dropoff']['lng'];
   var best_driver = drivers[0];
-  var least_size = best_driver['queue.length'];
+  var least_size = best_driver['queue'].length;
   drivers.forEach( function (driver){
-    driver['queue'].forEach( function (request)){
+    // for each trip in the queue, check if pickup locations match and if so, return driver
+    driver['queue'].forEach( function (request, index){
       if (request['pickup'] === pickupBuilding)
+        earlyAssignment = index;
         return driver;
-    }
+    });
 
     if (driver['queue'].length < least_size ){
       best_driver = driver;
