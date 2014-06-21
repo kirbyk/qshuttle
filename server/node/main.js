@@ -78,14 +78,21 @@ qshuttle.child('trip_requests').on( 'child_added', function(snapshot){
 });
 
 function get_best_driver(drivers, trip_request){
-  //trip_request['pickup']['lat'];
+  pickupBuilding = trip_request.building['pickup'];
+  //lat = buildings[trip_request['pickup']]['lat'];
   //trip_request['dropoff']['lng'];
   var best_driver = drivers[0];
   var least_size = best_driver['queue.length'];
   drivers.forEach( function (driver){
+    driver['queue'].forEach( function (request)){
+      if (request['pickup'] === pickupBuilding)
+        return driver;
+    }
+
     if (driver['queue'].length < least_size ){
       best_driver = driver;
     }
+
   });
   return best_driver;
 }
