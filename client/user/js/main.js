@@ -21,7 +21,8 @@ $(function() {
       var dLat = childSnapshot.val()['lat'];
       var dLong = childSnapshot.val()['long'];
 
-      getTimeViaCoords(pLat, pLong, dLat, dLong);
+      var time = getTimeViaCoords(pLat, pLong, dLat, dLong);
+      console.log(time);
     }
   });
 
@@ -41,6 +42,9 @@ var handleRequest = function() {
                             $.UIGoToArticle("#statusPage");
                           });
     tripId = k.name();
+    var dest = getListVal('#destination-list-item');
+    pLat = $('#destination').find('h3:contains('+dest+')').attr('data-lat');
+    pLong = $('#destination').find('h3:contains('+dest+')').attr('data-long');
     });
 }
 
@@ -85,7 +89,7 @@ var getListVal = function(elem) {
 }
 
 var getTimeViaCoords = function(lat1, long1, lat2, long2) {
-  var url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+lat1+','+long1+'&destination='+lat2+','+long2+'&sensor=false&key=AIzaSyDm7QdN3d_oboYBWnu7iQ5Drjc5XLGjOIc';
+  var url = 'http://maps.googleapis.com/maps/api/directions/json?origin='+lat1+','+long1+'&destination='+lat2+','+long2+'&sensor=false&key=AIzaSyDm7QdN3d_oboYBWnu7iQ5Drjc5XLGjOIc';
   $.get(url, function(data) {
     console.log(data['routes']['legs']['duration']['text']);
   });

@@ -10,8 +10,8 @@ firebase = Firebase::Client.new(base_uri)
 @buildings = [ "A", "AA", "AC", "AE", "AF", "AI", "AK", "AM", "AO", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AZT", "BB", "BC", "BCT", "BE", "BF", "BG", "BH", "BI", "BL", "D", "E", "F", "M", "N", "O", "P", "Q", "QP", "QRC", "R", "S", "T", "W", "WA", "WB", "WC", "WD", "WE", "WT" ]
 
 def dlu_object
-  { driver_id: @driver_ids[Random.rand * @driver_ids.length], lat: Random.rand * 10 + 100,
-    long: Random.rand * 10 + 80, trip_id: '-JPzFH0JV3ZljRONaCYD'}
+  { driver_id: @driver_ids[Random.rand * @driver_ids.length], lat: 32.902326,
+    long: -117.201312, trip_id: '-JPzVxaI6xNjCgSa3Knw'}
 end
 
 def ds_object
