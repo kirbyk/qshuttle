@@ -1,0 +1,31 @@
+GIT
+  remote: git://github.com/CodementorIO/rest-firebase.git
+  revision: 63babfa0a40e0b453d4d2d26fe21e1a50b1df832
+  submodules: true
+  specs:
+    rest-core (3.1.1)
+      httpclient
+      mime-types
+      timers
+    rest-firebase (0.9.0)
+      rest-core (>= 3.1.1)
+
+GEM
+  specs:
+    coderay (1.1.0)
+    httpclient (2.3.4.1)
+    method_source (0.8.2)
+    mime-types (2.0)
+    pry (0.9.12.6)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    slop (3.5.0)
+    timers (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pry
+  rest-firebase!
