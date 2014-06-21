@@ -7,7 +7,7 @@
     <meta name='mobile-web-app-capable' content='yes'>
     <meta name='msapplication-tap-highlight' content='no'>
 
-    <title>QChat</title>
+    <title>QShuttle</title>
 
     <link rel='stylesheet' href='css/chui-ios-3.5.5.min.css'>
     <!-- <link rel='stylesheet' href='css/chui&#45;android&#45;3.5.5.min.css'> -->
@@ -16,6 +16,64 @@
     <script src='js/lib/chui-3.5.5.min.js'></script>
   </head>
   <body>
+    <nav>
+      <h1>QShuttle</h1>
+    </nav>
+    <article id='homepage'>
+      <section>
+        <ul class='list'>
+          <li class='comp' data-goto>
+            <div>
+              <h3>Pickup Location</h3>
+            </div>
+            <aside>
+              <h4>Building AM</h4>
+              <span class='nav'></span>
+            </aside>
+          </li>
+          <li class='comp' data-goto>
+            <div>
+              <h3>Destination</h3>
+            </div>
+            <aside>
+              <h4>Building AO</h4>
+              <span class='nav'></span>
+            </aside>
+          </li>
+        </ul>
+        <a id='goToLast' href='javascript:void(null)' class="button action">Request Shuttle</a>
+      </section>
+    </article>
+
+    <!-- ===================== Pickup Location List =======================  -->
+    <nav>
+      <h1>Pickup Location</h1>
+    </nav>
+    <article id='select-example'>
+      <section>
+        <ul class='list'>
+          <li data-select-value='eat'>
+            <h3>Go eat something</h3>
+          </li>
+        </ul>
+        <p><strong>You are going to: </strong><span id="response"></span></p>
+      </section>
+    </article>
+
+    <!-- ======================= Destination List =========================  -->
+    <nav>
+      <h1>Destination</h1>
+    </nav>
+    <article id='select-example'>
+      <section>
+        <ul class='list'>
+          <li data-select-value='eat'>
+            <h3>Go eat something</h3>
+          </li>
+        </ul>
+        <p><strong>You are going to: </strong><span id="response"></span></p>
+      </section>
+    </article>
 
     <script src='js/main.js'></script>
   </body>
