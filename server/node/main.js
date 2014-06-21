@@ -91,9 +91,11 @@ function get_best_driver(drivers, trip_request){
 }
 
 function send_trip_assignment(driver){
-  var current_trip_request = driver['queue'].splice(0,1);
-  driver['status'] = 'busy';
-  console.log("setting driver to busy");
-  console.log(driver['lat']);
-  //qshuttle.send...
+  var queue = driver['queue'];
+  if (queue.length > 0 ){
+    var current_trip_request = driver['queue'].splice(0,1);
+    driver['status'] = 'busy';
+    console.log("setting driver to busy");
+    //qshuttle.send...
+  }
 }
