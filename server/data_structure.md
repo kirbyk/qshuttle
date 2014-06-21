@@ -11,7 +11,7 @@
 ##Driver Status
 - Driver_id
 - Status (available/busy/done)
-##Driver Routes
+##Trip Assignments
 - Pickup
 - Dropoff
 - Driver_id

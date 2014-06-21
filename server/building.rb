@@ -1,6 +1,7 @@
 class Building
+  attr_accessor :location, :code
   def initialize obj
-    @lat, @lng = obj['bldgLatitude'], obj['bldgLongitude']
+    @location = Location.new @lng = obj['bldgLatitude'], obj['bldgLongitude']
     @code = obj['blld']
   end
 end
