@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en' ng-app='root'>
   <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
@@ -12,10 +12,11 @@
     <link rel='stylesheet' href='css/chui-ios-3.5.5.min.css'>
     <!-- <link rel='stylesheet' href='css/chui&#45;android&#45;3.5.5.min.css'> -->
 
+    <script src='js/lib/angular.min.js'></script>
     <script src='js/lib/jquery.min.js'></script>
     <script src='js/lib/chui-3.5.5.min.js'></script>
   </head>
-  <body>
+  <body ng-controller='app'>
     <!-- ============================ Homepage ============================  -->
     <nav class='current'>
       <h1>QShuttle</h1>
@@ -28,7 +29,8 @@
               <h3>Pickup Location</h3>
             </div>
             <aside>
-              <h4>Building AM</h4>
+              <!-- <h4>Building AM</h4> -->
+              <h4>{{pickupLocation}}</h4>
               <span class='nav'></span>
             </aside>
           </li>
