@@ -23,11 +23,16 @@ def tr_object
     time_requested: Time.now.to_i }
 end
 
+def ta_object
+  { driver_id: @driver_ids[Random.rand * @driver_ids.length], dropoff: @buildings[Random.rand * @buildings.length], pickup: @buildings[Random.rand * @buildings.length], trip_id: '-JPzAO6kgXVDFwA4Ud5Z' }
+end
+
 loop do
   puts 'Pick One'
   puts 'Driver Location Updates `dlu`'
   puts 'Driver Status           `ds`'
   puts 'Trip Requests           `tr`'
+  puts 'Trip Assignments        `ta`'
   case gets.chomp
   when 'dlu'
     resp = firebase.push('driver_location_updates', dlu_object)
@@ -37,6 +42,9 @@ loop do
     puts resp.body
   when 'tr'
     resp = firebase.push('trip_requests', tr_object)
+    puts resp.body
+  when 'ta'
+    resp = firebase.push('trip_assignments', ta_object)
     puts resp.body
   end
 end

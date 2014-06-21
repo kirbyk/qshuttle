@@ -11,9 +11,11 @@
 
     <link rel='stylesheet' href='css/chui-ios-3.5.5.min.css'>
     <!-- <link rel='stylesheet' href='css/chui&#45;android&#45;3.5.5.min.css'> -->
+    <link rel='stylesheet' href='css/style.css'>
 
     <script src='js/lib/jquery.min.js'></script>
     <script src='js/lib/chui-3.5.5.min.js'></script>
+    <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
   </head>
   <body>
     <!-- ============================ Homepage ============================  -->
@@ -42,7 +44,7 @@
             </aside>
           </li>
         </ul>
-        <a id='goToLast' href='javascript:void(null)' class="button action">Request Shuttle</a>
+        <a id='requestShuttle' href='javascript:void(null)' class="button action">Request Shuttle</a>
       </section>
     </article>
 
@@ -109,7 +111,40 @@
             <h3>Building WT</h3>
           </li>
         </ul>
-        <p><strong>You are going to: </strong><span id="response"></span></p>
+      </section>
+    </article>
+
+    <!-- ========================== Status Page ===========================  -->
+    <nav class='next'>
+      <h1>Status Page</h1>
+    </nav>
+    <article id="statusPage" class='next'>
+      <section>
+        <ul class='list'>
+          <li class='comp' data-goto>
+            <aside>
+              <span class='icon car'></span>
+            </aside>
+            <div>
+              <h3>Time to Pickup</h3>
+            </div>
+            <aside>
+              <h4><span id='pickup-time'>8</span> minutes</h4>
+            </aside>
+          </li>
+          <li class='comp' data-goto>
+            <aside>
+              <span class='icon map'></span>
+            </aside>
+            <div>
+              <h3>Time to Destination</h3>
+            </div>
+            <aside>
+              <h4><span id='destination-time'>12</span> minutes</h4>
+            </aside>
+          </li>
+        </ul>
+        <a id='cancelShuttle' href='javascript:void(null)' class="button action">Cancel Shuttle</a>
       </section>
     </article>
 
