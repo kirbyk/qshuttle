@@ -1,1 +1,38 @@
-[{"a":"b"}]
+[
+  {
+    "pickup": "AM",
+    "dropoff": "AO",
+    "driver_id": "69",
+    "trip_id": "9000"
+  },
+  {
+    "pickup": "AM",
+    "dropoff": "AO",
+    "driver_id": "69",
+    "trip_id": "9000"
+  },
+  {
+    "pickup": "AM",
+    "dropoff": "AO",
+    "driver_id": "69",
+    "trip_id": "9000"
+  },
+  {
+    "pickup": "AM",
+    "dropoff": "AO",
+    "driver_id": "69",
+    "trip_id": "9000"
+  },
+  {
+    "pickup": "AM",
+    "dropoff": "AO",
+    "driver_id": "69",
+    "trip_id": "9000"
+  },
+  {
+    "pickup": "AM",
+    "dropoff": "AO",
+    "driver_id": "69",
+    "trip_id": "9000"
+  }
+]

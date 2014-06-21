@@ -1,1 +1,38 @@
-[{"a":"b"}]
+[
+  {
+    "driver_id": "testdata",
+    "lat": "12.123",
+    "long": "82.23",
+    "trip_id": "34"
+  },
+  {
+    "driver_id": "testdata",
+    "lat": "12.123",
+    "long": "82.23",
+    "trip_id": "34"
+  },
+  {
+    "driver_id": "testdata",
+    "lat": "12.123",
+    "long": "82.23",
+    "trip_id": "34"
+  },
+  {
+    "driver_id": "testdata",
+    "lat": "12.123",
+    "long": "82.23",
+    "trip_id": "34"
+  },
+  {
+    "driver_id": "testdata",
+    "lat": "12.123",
+    "long": "82.23",
+    "trip_id": "34"
+  },
+  {
+    "driver_id": "testdata",
+    "lat": "12.123",
+    "long": "82.23",
+    "trip_id": "34"
+  }
+]
