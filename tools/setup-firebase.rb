@@ -62,3 +62,14 @@ trip_requests.each do |trip_request|
   response = firebase.push('trip_requests', trip_request)
   puts response.body
 end
+
+puts 'trip_cancellations'
+
+trip_cancellations_file = File.open('data/trip_cancellations.json', 'r')
+trip_cancellations_raw =  trip_cancellations_file.read
+trip_cancellations = JSON.parse(trip_cancellations_raw)
+
+trip_cancellations.each do |trip_cancellation|
+  response = firebase.push('trip_cancellations', trip_cancellation)
+  puts response.body
+end
