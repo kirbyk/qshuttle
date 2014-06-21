@@ -2,3 +2,4 @@ gem 'rest-firebase', :git => 'git://github.com/CodementorIO/rest-firebase.git',
                      :submodules => true
 
 gem 'pry'
+gem 'awesome-print'
